@@ -1,0 +1,2 @@
+module Multithreding.java {
+}
