@@ -1,10 +1,43 @@
 package Multithreded;
 
+
+class myThread extends Thread{
+	
+	
+	
+	
+	
+	public void run() {
+	for (int i= 0;i<10;i++)
+		{
+			System.out.println("child Thread");
+			Thread.yield();
+		}
+	}
+	
+}
+
 public class MyMultithreading {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		
+		
 
+		System.out.println(Thread.currentThread().getPriority());
+		myThread t = new myThread();
+		t.start();
+		for(int i=0;i<10;i++)
+		{
+			System.out.println("main thread");
+		}
+		
+		System.out.println("main method executed by thread"+ Thread.currentThread().getName());
+		Thread.currentThread().setPriority(7);
+		System.out.println(Thread.currentThread().getPriority());
+		
+		
 		//Introduction to  multithreding concept
 		//1.Ways to define the thread >>  by extending a ThreadClass or by implementing Runnable Interface
 		//2.Getting and setting name of threads 
@@ -31,7 +64,24 @@ public class MyMultithreading {
 		
 		//objective of multitasking is to reduce response time of system to improve performance.
 		
-		//
+		//yield method : yield method causes to pause the current executing thread to give
+		//the chance for waiting threads of same priority //thread goes in the ready/runnable state 
+		//after calling yield method.
+		
+		//join method: If a thread wants to wait until completing some other thread, then we should go for 
+		//join method // Threads goes in to waiting state after calling join method.
+		
+		//Thread can interrupt the sleeping thread or waiting thread by using interrupt method of thread class
+		//public void interrupt()
+		
+		//Synchronized keyword: synchronized is a modifier applicable only for methods and blocks but
+		//not for classes and variables.//If a multiple threads are trying to operate simultaneously 
+		//on the same java object then there may be a chance of data inconsistency problem to overcome this
+		//problem we should go for synchronized keyword.
+		//If a method are blocked declared as synchronized then at a time only on ethread allow to execute
+		//that method are blocked on the given object so that data inconsistency problem will be resolved 
+		
+		
             
 	}
 
